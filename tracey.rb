@@ -23,15 +23,12 @@ get "/" do
 
     begin
       doc = Kramdown::Document.new(File.read(File.join(dir, "annotations.txt")))
-      puts "FOUND ANNOTATIONS: #{doc}"
       section[:annotations] = doc.to_html
     rescue => e
       puts "#{dir}: no annotations"
-      p e
     end
     sections << section
   end
 
-  p sections
   erb :index, :locals  => {:sections => sections}
 end

@@ -30,5 +30,8 @@ get "/" do
     sections << section
   end
 
+  p = 1
+  sections.each { |s| s[:pageno] = p; p += 1 }
+
   erb :index, :locals  => {:sections => sections}
 end

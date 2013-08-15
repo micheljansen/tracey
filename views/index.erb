@@ -71,6 +71,12 @@
     display: none;
   }
 
+  .pageno {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
 }
 </style>
 </head>
@@ -85,6 +91,7 @@
   <aside>
     <%= section[:annotations] %>
     <div class="noprint">(<%= section[:path] %>)</div>
+    <div class="pageno">Page <%= section[:pageno] %></div>
   </aside>
 </section>
 <% end %>

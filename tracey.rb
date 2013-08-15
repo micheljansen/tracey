@@ -19,7 +19,7 @@ get "/" do
 
     imgs = Dir.glob(File.join(dir,"*.{jpg,jpeg,svg}"), File::FNM_CASEFOLD)
     puts imgs
-    section[:img] = imgs[0].gsub(/public/,"") if imgs.length > 0
+    section[:imgs] = imgs.map{|img| img.gsub(/public/,"")}
 
     begin
       doc = Kramdown::Document.new(File.read(File.join(dir, "annotations.txt")))

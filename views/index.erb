@@ -78,7 +78,9 @@
 <% sections.each do |section| %>
 <section class="page">
   <div class="subject">
-    <img src="<%= section[:img] %>"/>
+    <% section[:imgs].each do |img| %>
+      <img src="<%= img %>"/>
+    <% end %>
   </div>
   <aside>
     <%= section[:annotations] %>

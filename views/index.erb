@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<title>MA progress</title>
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: "Interstate Mazda";
+  }
+  p {
+    margin-bottom: 1em;
+  }
+
+@media screen {
+  .page {
+    position: relative;
+    border-bottom: 20px solid #eee;
+    min-height: 20em;
+  }
+  .subject {
+    max-width: 50%;
+  }
+
+  .subject img {
+    max-width: 100%;
+  }
+
+  aside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: #eee;
+    padding: 1em;
+    white-space: pre;
+  }
+}
+@media print {
+  .page {
+    position: relative;
+    page-break-before: always;
+    height: 40%;
+    height: 17cm;
+    overflow: hidden;
+  }
+  .subject {
+    max-height: 100%;
+    max-width: 50%;
+  }
+  .subject img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  aside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: rgba(255,255,255,0.5);
+    padding: 1em;
+  }
+
+  .noprint {
+    display: none;
+  }
+
+}
+</style>
+</head>
+<body>
+<% sections.each do |section| %>
+<section class="page">
+  <div class="subject">
+    <img src="<%= section[:img] %>"/>
+  </div>
+  <aside>
+    <%= section[:annotations] %>
+    <div class="noprint">(<%= section[:path] %>)</div>
+  </aside>
+</section>
+<% end %>
+
+</body>
+</html>

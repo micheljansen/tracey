@@ -89,8 +89,17 @@
 </style>
 </head>
 <body>
+<div class="noprint">
+  <ul>
+<% sections.each do |section| %>
+  <li><a href="#<%=section[:path].gsub(/\//, '_')%>"><%= section[:path] %></a></li>
+<% end %>
+  </ul>
+</div>
+
 <% sections.each do |section| %>
 <section class="page">
+  <a name="<%=section[:path].gsub(/\//, '_')%>"></a>
   <div class="subject">
     <% section[:imgs].each do |img| %>
       <img src="<%= img %>"/>

@@ -7,23 +7,27 @@
     margin: 0;
     padding: 0;
     border: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+
   }
-  html {
+  body {
     font-family: "Interstate Mazda";
+    padding: 3%;
+    line-height: 1.5;
   }
-  p {
-    margin-bottom: 1em;
+  p, h1, h2 {
+    margin: 1em 0; padding: 0;
   }
 
 @media screen {
   .page {
     position: relative;
-    border-bottom: 20px solid #eee;
-    min-height: 20em;
+    margin-bottom: 5%;
   }
   .subject {
-    max-width: 50%;
+    width: 70%;
   }
 
   .subject img {
@@ -35,11 +39,11 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 50%;
-    background: #eee;
-    padding: 1em;
-    white-space: pre;
+    width: 28%;
+    border: solid 1px #ccc;
+    padding: 2%;
   }
+
 }
 @media print {
   .page {

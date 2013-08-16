@@ -13,7 +13,7 @@
 
   }
   body {
-    font-family: "Interstate Mazda";
+    font-family: "Interstate Mazda", "Interstate", "Helvetica";
     padding: 3%;
     line-height: 1.5;
   }
@@ -21,13 +21,25 @@
     margin: 1em 0; padding: 0;
   }
 
+  aside h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  aside h2 {
+    margin-top: 0;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+
 @media screen {
   .page {
     position: relative;
     margin-bottom: 5%;
   }
   .subject {
-    width: 70%;
+    width: 50%;
   }
 
   .subject img {
@@ -39,7 +51,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 28%;
+    width: 50%;
     border: solid 1px #ccc;
     padding: 2%;
   }
@@ -92,14 +104,16 @@
 </style>
 </head>
 <body>
+<!--
 <div class="noprint">
   <ul>
 <% sections.each do |section| %>
-  <li><a href="#<%=section[:path].gsub(/\//, '_')%>"><%= section[:path] %></a></li>
+  <li><a href="#<%=section[:path].gsub(/\//, '_')%>"><%= section[:path] %> (page <%= section[:pageno]%>)</a></li>
 <% end %>
   </ul>
 </div>
 
+-->
 <% sections.each do |section| %>
 <section class="page">
   <a name="<%=section[:path].gsub(/\//, '_')%>"></a>

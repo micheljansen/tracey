@@ -1,6 +1,9 @@
-to install:
-bundle install
-bundle exec ruby tracey.rb
+Install:
+
+    bundle install
+
+Run:
+    rackup
 
 put your files in public/content/
 

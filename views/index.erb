@@ -60,7 +60,52 @@
     list-style-position:inside;
   }
 
+  #toc {
+    padding-bottom: 2em;
+  }
+  #toc td {
+    padding-left: 1em;
+  }
+
+  #toc h1 {
+    text-align: center;
+  }
+  #toc table {
+    margin: 0 auto;
+  }
+  #toc a, #toc a:active, #toc a:visited {
+    color: #999;
+  }
 }
+
+@media screen and (min-width: 1200px) {
+  #toc {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    z-index: 1000;
+  }
+  #toc h1 {
+    margin: 0.25em;
+  }
+  #toc table {
+    width: 100%;
+  }
+  .subject {
+    margin-left: 20%;
+  }
+  aside {
+    width: 30%;
+  }
+  #toc_list {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
 @media print {
   .page {
     position: relative;
@@ -99,21 +144,25 @@
     bottom: 0;
     right: 0;
   }
-
 }
 </style>
 </head>
 <body>
-<!--
-<div class="noprint">
-  <ul>
-<% sections.each do |section| %>
-  <li><a href="#<%=section[:path].gsub(/\//, '_')%>"><%= section[:path] %> (page <%= section[:pageno]%>)</a></li>
-<% end %>
-  </ul>
+<div id="toc" class="noprint">
+  <h1>Contents</h1>
+  <div id="toc_list">
+    <table>
+  <% sections.each do |section| %>
+    <% ref = section[:path].gsub(/\//, '_') %>
+    <tr>
+      <td><a href="#<%=ref%>"><%= section[:path].gsub(/^.*public\/content\//, '') %></a></td>
+      <td><a href="#<%=ref%>"><%= section[:pageno]%></a></td>
+    </tr>
+  <% end %>
+    </table>
+  </div>
 </div>
 
--->
 <% sections.each do |section| %>
 <section class="page">
   <a name="<%=section[:path].gsub(/\//, '_')%>"></a>

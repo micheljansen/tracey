@@ -153,7 +153,7 @@
   <div id="toc_list">
     <table>
   <% sections.each do |section| %>
-    <% ref = section[:path].gsub(/\//, '_') %>
+    <% ref = section[:path].gsub(/[\/, ]/, '_') %>
     <tr>
       <td><a href="#<%=ref%>"><%= section[:path].gsub(/^.*public\/content\//, '') %></a></td>
       <td><a href="#<%=ref%>"><%= section[:pageno]%></a></td>
@@ -164,8 +164,9 @@
 </div>
 
 <% sections.each do |section| %>
+    <% ref = section[:path].gsub(/[\/, ]/, '_') %>
 <section class="page">
-  <a name="<%=section[:path].gsub(/\//, '_')%>"></a>
+  <a name="<%=ref%>"></a>
   <div class="subject">
     <% section[:imgs].each do |img| %>
       <img src="<%= img %>"/>

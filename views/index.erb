@@ -114,7 +114,7 @@
     height: 17cm;
     overflow: hidden;
   }
-  .page:first-child {
+  .page:first-of-type {
     page-break-before: avoid;
   }
   .subject {
@@ -137,6 +137,8 @@
 
   .noprint {
     display: none;
+    page-break-before: avoid;
+    page-break-after: avoid;
   }
 
   .pageno {
